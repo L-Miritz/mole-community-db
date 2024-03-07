@@ -15,7 +15,7 @@ The image below shows how the database is structured, using MySQL model:
 
 ## Development
 
-The database structure and model were created in MySQL Workbench.
+The database structure and model were created in MySQL Workbench. Some random data was still left inside the database for when I was testing the queries to see if all tables were properly connected.
 
 ## Data
 
