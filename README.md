@@ -13,7 +13,7 @@ The image below shows how the database is structured, using MySQL model:
 | ![MySQL model of the database](img-readme/db_mole_diagram_img.png) |
 | ------------------------------------------------------------------ |
 
-# Development
+## Development
 
 The database structure and model were created in MySQL Workbench.
 
