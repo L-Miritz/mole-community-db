@@ -89,7 +89,7 @@ DROP TABLE IF EXISTS `tb_flag`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_flag` (
   `flag_id` smallint(6) NOT NULL,
-  `flag_name` varchar(40) DEFAULT NULL,
+  `flag_name` varchar(40) NOT NULL,
   `flag_img` varchar(100) NOT NULL,
   PRIMARY KEY (`flag_id`),
   UNIQUE KEY `flag_name` (`flag_name`)
@@ -153,13 +153,13 @@ CREATE TABLE `tb_match` (
   `player_rh` tinyint(1) DEFAULT NULL,
   `opponent_rh` tinyint(1) DEFAULT NULL,
   `disconnects` tinyint(1) DEFAULT NULL,
-  `player_rep` tinyint(1) DEFAULT NULL,
-  `player_rep_timestamp` datetime DEFAULT NULL,
+  `player_rep` tinyint(1) NOT NULL,
+  `player_rep_timestamp` datetime NOT NULL,
   `opponent_neg_rep_post` varchar(200) DEFAULT NULL,
   `player_neg_rep_reply` varchar(200) DEFAULT NULL,
   `player_rep_reply_timestamp` datetime DEFAULT NULL,
-  `opponent_rep` tinyint(1) DEFAULT NULL,
-  `opponent_rep_timestamp` datetime DEFAULT NULL,
+  `opponent_rep` tinyint(1) NOT NULL,
+  `opponent_rep_timestamp` datetime NOT NULL,
   `player_neg_rep_post` varchar(200) DEFAULT NULL,
   `opponent_neg_rep_reply` varchar(200) DEFAULT NULL,
   `opponent_rep_reply_timestamp` datetime DEFAULT NULL,
@@ -179,7 +179,7 @@ CREATE TABLE `tb_match` (
 
 LOCK TABLES `tb_match` WRITE;
 /*!40000 ALTER TABLE `tb_match` DISABLE KEYS */;
-INSERT INTO `tb_match` VALUES (2,1,2,3,1,3,1,0,0,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(3,1,5,1,3,0,0,0,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(4,1,2,4,1,2,1,0,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(5,2,2,5,0,1,0,1,1,1,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(6,2,1,4,3,1,0,1,0,0,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(7,2,3,2,2,2,2,1,1,3,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(8,2,4,5,0,0,1,0,0,2,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(10,1,3,4,2,2,0,1,0,2,-1,'2024-12-03 16:00:07','Very bad loser... pulled his cable as soon as he made a mistake','It just happened dude... it was bad luck, just that!','2024-12-03 17:24:18',-1,'2024-12-04 22:02:03','Called me a lier just because my net dropped once.','I don\'t believe you.','2024-12-05 13:36:33'),(11,3,5,3,1,1,0,0,1,1,1,'2026-06-24 13:47:11',NULL,NULL,NULL,1,'2026-06-24 13:47:11',NULL,NULL,NULL),(12,3,1,4,2,1,1,0,0,2,1,'2026-03-21 14:30:15',NULL,NULL,NULL,1,'2026-03-21 14:30:15',NULL,NULL,NULL),(13,2,4,3,1,3,2,1,0,3,1,'2025-11-08 12:22:59',NULL,NULL,NULL,1,'2025-11-08 12:22:59',NULL,NULL,NULL),(14,1,1,3,0,1,0,0,0,0,1,'2024-02-14 17:53:56',NULL,NULL,NULL,1,'2024-02-14 17:53:56',NULL,NULL,NULL);
+INSERT INTO `tb_match` VALUES (2,1,2,3,1,3,1,0,0,1,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(3,1,5,1,3,0,0,0,0,0,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(4,1,2,4,1,2,1,0,1,1,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(5,2,2,5,0,1,0,1,1,1,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(6,2,1,4,3,1,0,1,0,0,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(7,2,3,2,2,2,2,1,1,3,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(8,2,4,5,0,0,1,0,0,2,0,'0000-00-00 00:00:00',NULL,NULL,NULL,0,'0000-00-00 00:00:00',NULL,NULL,NULL),(10,1,3,4,2,2,0,1,0,2,-1,'2024-12-03 16:00:07','Very bad loser... pulled his cable as soon as he made a mistake','It just happened dude... it was bad luck, just that!','2024-12-03 17:24:18',-1,'2024-12-04 22:02:03','Called me a lier just because my net dropped once.','I don\'t believe you.','2024-12-05 13:36:33'),(11,3,5,3,1,1,0,0,1,1,1,'2026-06-24 13:47:11',NULL,NULL,NULL,1,'2026-06-24 13:47:11',NULL,NULL,NULL),(12,3,1,4,2,1,1,0,0,2,1,'2026-03-21 14:30:15',NULL,NULL,NULL,1,'2026-03-21 14:30:15',NULL,NULL,NULL),(13,2,4,3,1,3,2,1,0,3,1,'2025-11-08 12:22:59',NULL,NULL,NULL,1,'2025-11-08 12:22:59',NULL,NULL,NULL),(14,1,1,3,0,1,0,0,0,0,1,'2024-02-14 17:53:56',NULL,NULL,NULL,1,'2024-02-14 17:53:56',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `tb_match` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,4 +350,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-09 15:13:26
+-- Dump completed on 2024-04-03  8:42:29
